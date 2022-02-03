@@ -5,17 +5,13 @@ function solveEquation(a, b, c) {
   let D = b ** 2 - 4 * a * c;
 
   switch(true) {
-    case D < 0:
-      return roots;
-      break;
     case D === 0:
       roots.push(-b / (2 * a));
-      return roots;
       break;
     case D > 0:
       roots.push((-b + Math.sqrt(D)) / (2 * a), (-b - Math.sqrt(D)) / (2 * a));
-      return roots;
   }
+  return roots;
   
   //Второй вариант условия
   // if (D < 0) {
@@ -33,15 +29,15 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount = 0; 
 
   if (Number.isNaN(Number(percent))) {
-    return (`Параметр <Процентная ставка> содержит неправильное значение <${percent}>`);
+    return (`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`);
   }
 
   if (Number.isNaN(Number(contribution))) {
-    return (`Параметр <Начальный взнос> содержит неправильное значение <${contribution}>`);
+    return (`Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`);
   } 
 
   if (Number.isNaN(Number(amount))) {
-    return (`Параметр <Общая стоимость> содержит неправильное значение <${amount}>`);
+    return (`Параметр "Общая стоимость" содержит неправильное значение "${amount}"`);
   }
 
   percent = Number(percent);
@@ -59,7 +55,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     months++;
   }
 
-  totalAmount = ((creditBody * (interestRate + (interestRate / (((1 + interestRate) ** months) - 1)))* months)).toFixed(2);
+  totalAmount = Number(((creditBody * (interestRate + (interestRate / (((1 + interestRate) ** months) - 1)))* months)).toFixed(2));
 
   return totalAmount;
 }
