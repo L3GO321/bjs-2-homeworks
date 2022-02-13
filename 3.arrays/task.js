@@ -1,15 +1,15 @@
-function compareArrays(arr1, arr2) {
-  let result;
+//Hometask 1
+function compareArrays(arr1, arr2) { 
+  const isEqual = (elem, index) => elem === arr2[index]; 
 
-  // Ваш код
-
-  return result; // boolean
+  return (arr1.length === arr2.length) && arr1.every(isEqual); 
 }
 
+//Hometask 2
 function advancedFilter(arr) {
-  let resultArr;
+  const filterArray = elem => elem > 0 && !(elem % 3);
 
-  // Ваш код
+  const multipleArray = elem => elem * 10;
 
-  return resultArr; // array
+  return arr.filter(filterArray).map(multipleArray);
 }
