@@ -13,7 +13,7 @@ const validateCount = (numberOfGoods) => {
     try {
         return parseCount(numberOfGoods);
     } catch(e) {
-        return e.message;
+        return e;
     }
 }
 
@@ -31,13 +31,13 @@ class Triangle {
         this.thirdSide = thirdSide;
     }
 
-    getPerimetr() {
+    getPerimeter() {
         return this.firstSide + this.secondSide + this.thirdSide;
     }
 
     getArea() {
-        let p = this.getPerimetr() / 2;
-        return Math.sqrt(p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)).toFixed(3);
+        let p = this.getPerimeter() / 2;
+        return Number(Math.sqrt(p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)).toFixed(3));
     }
 }
 
@@ -47,7 +47,7 @@ const getTriangle = (firstSideLength, secondSideLength, thirdSideLength) => {
     } catch {
         return {
             getArea: () => 'Ошибка! Треугольник не существует',
-            getPerimetr: () => 'Ошибка! Треугольник не существует'
+            getPerimeter: () => 'Ошибка! Треугольник не существует'
         };
     }
 }
